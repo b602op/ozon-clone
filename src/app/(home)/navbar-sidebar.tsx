@@ -5,6 +5,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Link from "next/link";
 
 interface NavbarItemProps {
   href: string;
@@ -25,20 +26,35 @@ export const NavbarSidebar = ({ items, open, onOpenChange }: NavbarSidebarProps)
         className="p-0 transition-none"
       >
         <SheetHeader className="p-4 border-b">
-          <div className="flex item-center">
-            <SheetTitle>Menu</SheetTitle>
-          </div>
+          <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
-        <ScrollArea className="flex h-full flex-col gap-4">
+        <ScrollArea className="flex flex-col overflow-y-auto h-full pb-2">
           {items.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              className="flex items-center gap-2"
+              className="w-full text-left p-4 hover:bg-black hover:text-white flex item-center text-base font-medium"
+              onClick={() => onOpenChange(false)}
             >
               {item.children}
-            </a>
+            </Link>
           ))}
+          <div className="border-t">
+          <Link
+            onClick={() => onOpenChange(false)}
+            href="/sign-in"
+            className="w-full text-left p-4 hover:bg-black hover:text-white flex item-center text-base font-medium"
+          >
+            Войти
+          </Link>
+          <Link
+            onClick={() => onOpenChange(false)}
+            href="/sign-up"
+            className="w-full text-left p-4 hover:bg-black hover:text-white flex item-center text-base font-medium"
+          >
+            Регистрация
+          </Link>
+          </div>
         </ScrollArea>
       </SheetContent>
     </Sheet>
