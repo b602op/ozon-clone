@@ -1,7 +1,7 @@
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
-export default async function Home() {
+export const GET = async () => {
   const payload = await getPayload({
     config: configPromise,
   })
@@ -10,9 +10,5 @@ export default async function Home() {
     collection: 'users',
   })
 
-  return (
-    <div className="p-4">.
-      {JSON.stringify(data, null, 2)}
-    </div>
-  )
+  return Response.json(data)
 }

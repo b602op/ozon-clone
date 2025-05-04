@@ -73,7 +73,7 @@ export const Navbar = () => {
   return (
     <nav className="h-20 flex border-b justify-between font-medium bg-white">
       <Link href="/" className="pl-6 flex items-center">
-        <span className={cn("text-5xl font-semibold", poppins.className)}>Ozon clone</span>
+        <span className={cn("text-5xl font-semibold", poppins.className)}>Ozon</span>
       </Link>
 
       <NavbarSidebar
